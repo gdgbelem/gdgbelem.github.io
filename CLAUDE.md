@@ -16,15 +16,31 @@ Site oficial da comunidade **GDG Belém** (Google Developer Group), construído 
 - `src/app/` — rotas (App Router)
 - `src/components/ui/` — componentes shadcn
 - `src/lib/utils.ts` — helper `cn()`
+- `src/lib/site.ts` — config central do site (fonte única para SEO/metadata/sitemap)
+- `src/lib/schema.tsx` — JSON-LD (schema.org) + componente `<SchemaMarkup>`
 - `inspiration/` — material de referência (sites antigos), **fora** do build e do TypeScript
+
+### SEO & static export
+
+- **Static export:** `output: "export"` no `next.config.ts` → gera HTML em `out/`. Hospedagem: **GitHub Pages**.
+- **basePath:** vazio para org page (`gdgbelem.github.io`); o CI detecta project pages e injeta `NEXT_PUBLIC_BASE_PATH=/repo`.
+- **Metadata:** API `Metadata` do Next no `layout.tsx` (root) + por página, lendo de `src/lib/site.ts`. Inclui Open Graph, Twitter card, canonical, robots.
+- **JSON-LD:** `Organization` + `WebSite` no layout; use `<SchemaMarkup>` com `generateEventSchema` / `generateFaqSchema` / `generateBreadcrumbs` nas páginas.
+- **Sitemap/robots:** `next-sitemap` roda no `postbuild` e escreve `sitemap.xml` + `robots.txt` em `out/`.
+- Texto visível em **pt-BR**; código e comentários em **inglês**.
 
 ### Comandos
 
 - `yarn dev` — dev server (Turbopack)
-- `yarn build` — build de produção
+- `yarn build` — build estático (`out/`) + sitemap (postbuild)
+- `yarn serve` — serve a pasta `out/` localmente
 - `yarn lint` — ESLint
+- `yarn ts-check` — typecheck (`tsc --noEmit`)
 
-> ⚠️ **Next.js 16 tem breaking changes** em relação a versões anteriores (ver `AGENTS.md`). Antes de escrever código, consulte os guias em `node_modules/next/dist/docs/` e a skill `next-best-practices`.
+### Deploy (CI)
+
+- `.github/workflows/deploy.yml` — build no push para `main` e deploy no **GitHub Pages** (`out/` + `.nojekyll`). Node fixado via `.nvmrc` (22), deps com `yarn install --frozen-lockfile`.
+
 
 ## Ambiente Claude Code (local, neste projeto)
 
