@@ -1,12 +1,30 @@
 # GDG Belém — Site
 
-Site oficial da comunidade **GDG Belém** (Google Developer Group). Projeto ainda não inicializado — o código será criado posteriormente. A intenção é construir com **Next.js (App Router, v16+)**.
+Site oficial da comunidade **GDG Belém** (Google Developer Group), construído com **Next.js (App Router)**.
 
-## Stack pretendida
+## Stack
 
-- **Framework:** Next.js 16+ (App Router, React Server Components)
+- **Framework:** Next.js 16 (App Router, React Server Components) com **Turbopack**
 - **Linguagem:** TypeScript
-- **Estilo:** a definir (Tailwind CSS é a referência inicial)
+- **UI:** React 19
+- **Estilo:** Tailwind CSS v4
+- **Componentes:** shadcn/ui (preset `base-nova`, base color `neutral`, ícones `lucide`)
+- **Gerenciador de pacotes:** **Yarn** (clássico). Para o CLI do shadcn use `npx shadcn@latest ...` (o Yarn 1 não tem `dlx`); deps continuam no Yarn.
+
+### Estrutura
+
+- `src/app/` — rotas (App Router)
+- `src/components/ui/` — componentes shadcn
+- `src/lib/utils.ts` — helper `cn()`
+- `inspiration/` — material de referência (sites antigos), **fora** do build e do TypeScript
+
+### Comandos
+
+- `yarn dev` — dev server (Turbopack)
+- `yarn build` — build de produção
+- `yarn lint` — ESLint
+
+> ⚠️ **Next.js 16 tem breaking changes** em relação a versões anteriores (ver `AGENTS.md`). Antes de escrever código, consulte os guias em `node_modules/next/dist/docs/` e a skill `next-best-practices`.
 
 ## Ambiente Claude Code (local, neste projeto)
 
@@ -20,7 +38,7 @@ Tudo é **local ao projeto** — nada instalado globalmente.
 
 ### MCP (`.mcp.json`)
 
-- **next-devtools** (`next-devtools-mcp`) — dá ao agente acesso em tempo real ao dev server do Next.js (erros, rotas, logs, metadata). Requer Next.js 16+. Conecta automaticamente quando `npm run dev` está rodando.
+- **next-devtools** (`next-devtools-mcp`) — dá ao agente acesso em tempo real ao dev server do Next.js (erros, rotas, logs, metadata). Requer Next.js 16+. Conecta automaticamente quando `yarn dev` está rodando.
 
 ### Design system
 

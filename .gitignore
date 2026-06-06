@@ -1,32 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # Dependencies
-node_modules/
-.pnp
-.pnp.js
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Lockfiles de outros gerenciadores (este projeto usa Yarn)
+package-lock.json
+pnpm-lock.yaml
+bun.lockb
+bun.lock
 
 # Next.js
-.next/
-out/
-build/
-dist/
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
 
-# Environment
-.env
-.env*.local
+# Testing
+/coverage
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Env files (can opt-in for committing if needed)
+.env*
+
+# Vercel
+.vercel
 
 # OS
 .DS_Store
+*.pem
 
 # Editor
 .vscode/
 .idea/
 
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
 # Claude Code
+# NOTE: a parent .gitignore (~/Documents/.gitignore) ignores .claude/, CLAUDE.md
+# and .mcp.json. We re-include (un-ignore) the team config we DO want to version.
+# To un-ignore files inside a dir, the dir itself must be un-ignored first.
 !CLAUDE.md
 !.mcp.json
 !.claude/
@@ -39,3 +62,6 @@ yarn-error.log*
 # Personal / local-only files stay ignored
 .claude.local.md
 .claude/settings.local.json
+
+# Local reference material (not part of the project)
+inspiration
