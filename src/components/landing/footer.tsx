@@ -1,0 +1,96 @@
+import {
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconBrandYoutube,
+  IconMail,
+} from "@tabler/icons-react";
+import { site, nav } from "@/lib/site";
+
+const socials = [
+  { key: "instagram", Icon: IconBrandInstagram, label: "Instagram" },
+  { key: "linkedin", Icon: IconBrandLinkedin, label: "LinkedIn" },
+  { key: "twitter", Icon: IconBrandX, label: "Twitter" },
+  { key: "youtube", Icon: IconBrandYoutube, label: "YouTube" },
+] as const;
+
+export function Footer() {
+  const links = socials.filter((s) => site.social[s.key]);
+
+  return (
+    <footer className="border-t border-border py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12">
+          <div>
+            <a href="#" className="flex items-baseline gap-1 text-lg font-extrabold tracking-tight">
+              <span className="text-google-blue">G</span>
+              <span className="text-google-red">D</span>
+              <span className="text-google-yellow">G</span>
+              <span className="ml-1 text-foreground">Belém</span>
+            </a>
+            <p className="mt-4 max-w-xs text-sm font-light text-muted-foreground">
+              {site.siteDescription}
+            </p>
+            <div className="mt-5 flex gap-4">
+              {links.map(({ key, Icon, label }) => (
+                <a
+                  key={key}
+                  href={site.social[key]}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-google-blue"
+                >
+                  <Icon size={19} stroke={1.5} />
+                </a>
+              ))}
+              <a
+                href={`mailto:${site.contactEmail}`}
+                aria-label="E-mail"
+                className="text-muted-foreground transition-colors hover:text-google-blue"
+              >
+                <IconMail size={19} stroke={1.5} />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h5 className="mb-4 text-[13px] font-bold uppercase tracking-[0.08em]">Navegação</h5>
+            <ul className="flex flex-col gap-3">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="text-sm font-light text-muted-foreground transition-colors hover:text-google-blue"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="mb-4 text-[13px] font-bold uppercase tracking-[0.08em]">Contato</h5>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <a
+                  href={`mailto:${site.contactEmail}`}
+                  className="text-sm font-light text-muted-foreground transition-colors hover:text-google-blue"
+                >
+                  {site.contactEmail}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-[13.5px] text-muted-foreground sm:flex-row">
+          <span>
+            © {site.siteName}. Comunidade independente, não afiliada oficialmente ao Google LLC.
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}

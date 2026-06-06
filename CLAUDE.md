@@ -8,7 +8,9 @@ Site oficial da comunidade **GDG Belém** (Google Developer Group), construído 
 - **Linguagem:** TypeScript
 - **UI:** React 19
 - **Estilo:** Tailwind CSS v4
-- **Componentes:** shadcn/ui (preset `base-nova`, base color `neutral`, ícones `lucide`)
+- **Componentes:** shadcn/ui (preset `base-nova`, base sobre `@base-ui`). Botões/links usam `buttonVariants(...)` direto no `<a>` (este preset não tem `asChild`).
+- **Ícones:** **Tabler Icons** (`@tabler/icons-react`, ex.: `IconBrandInstagram`, `IconMapPin`). SVG inline só se o ícone não existir no Tabler.
+- **Cores:** primary = azul Google; tokens `google-blue/red/yellow/green` no `globals.css` para os accents da identidade GDG.
 - **Gerenciador de pacotes:** **Yarn** (clássico). Para o CLI do shadcn use `npx shadcn@latest ...` (o Yarn 1 não tem `dlx`); deps continuam no Yarn.
 
 ### Estrutura
@@ -16,8 +18,9 @@ Site oficial da comunidade **GDG Belém** (Google Developer Group), construído 
 - `src/app/` — rotas (App Router)
 - `src/components/ui/` — componentes shadcn
 - `src/lib/utils.ts` — helper `cn()`
-- `src/lib/site.ts` — config central do site (fonte única para SEO/metadata/sitemap)
+- `src/lib/site.ts` — config central do site + conteúdo da landing (fonte única para SEO/metadata/sitemap e seções)
 - `src/lib/schema.tsx` — JSON-LD (schema.org) + componente `<SchemaMarkup>`
+- `src/components/landing/` — seções da landing (navbar, hero, about, stats, activities, faq, cta, footer)
 - `inspiration/` — material de referência (sites antigos), **fora** do build e do TypeScript
 
 ### SEO & static export
