@@ -63,5 +63,9 @@ yarn-error.log*
 .claude.local.md
 .claude/settings.local.json
 
+# Impeccable: version PRODUCT.md, DESIGN.md and live config; ignore local session/cache state.
+.impeccable/live/sessions/
+.impeccable/live/*.log
+
 # Local reference material (not part of the project)
 inspiration

@@ -3,9 +3,11 @@ import { absoluteUrl, site, faq } from "@/lib/site";
 import { SchemaMarkup, generateBreadcrumbs, generateFaqSchema } from "@/lib/schema";
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
-import { About } from "@/components/landing/about";
 import { Stats } from "@/components/landing/stats";
+import { About } from "@/components/landing/about";
 import { Activities } from "@/components/landing/activities";
+import { UpcomingEvents } from "@/components/landing/upcoming-events";
+import { PastEvents } from "@/components/landing/past-events";
 import { Faq } from "@/components/landing/faq";
 import { Cta } from "@/components/landing/cta";
 import { Footer } from "@/components/landing/footer";
@@ -29,9 +31,11 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <About />
         <Stats />
+        <About />
         <Activities />
+        <UpcomingEvents />
+        <PastEvents />
         <Faq />
         <Cta />
       </main>

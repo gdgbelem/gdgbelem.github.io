@@ -36,10 +36,10 @@ export const site = {
   ],
 
   social: {
-    instagram: "",
-    linkedin: "",
-    twitter: "",
-    youtube: "",
+    instagram: "https://www.instagram.com/gdgbelemoficial",
+    linkedin: "https://www.linkedin.com/company/gdgbelem",
+    twitter: "https://x.com/GDGBelem",
+    facebook: "https://www.facebook.com/gdgbelem",
   },
 } as const;
 
@@ -59,30 +59,15 @@ export const hero = {
 } as const;
 
 export const about = {
-  title: "Sobre o GDG Belém",
+  eyebrow: "Quem somos",
+  title: ["Tecnologia que nasce", "na Amazônia"],
   description:
-    "Os Google Developer Groups (GDG) são comunidades locais de pessoas interessadas nas tecnologias do Google. Em Belém, promovemos encontros gratuitos e abertos para todos os níveis — do iniciante ao profissional.",
-  highlights: [
-    {
-      color: "google-blue",
-      title: "Aberto a todos",
-      text: "Eventos gratuitos e inclusivos, para qualquer pessoa interessada em tecnologia.",
-    },
-    {
-      color: "google-red",
-      title: "Aprendizado prático",
-      text: "Workshops e palestras com conteúdo hands-on sobre Android, Web, Cloud e IA.",
-    },
-    {
-      color: "google-yellow",
-      title: "Networking",
-      text: "Conecte-se com outros devs, mentores e empresas da região Norte.",
-    },
-    {
-      color: "google-green",
-      title: "Open source",
-      text: "Incentivamos a colaboração e a contribuição para projetos da comunidade.",
-    },
+    "O GDG Belém é um capítulo da comunidade global Google Developer Groups, dedicado a impulsionar a inovação e o aprendizado em torno das tecnologias do Google na Amazônia. Um espaço acolhedor onde quem programa, estuda ou ama tecnologia se reúne para trocar conhecimento, fazer networking e construir o futuro — juntos.",
+  highlightTerm: "Google Developer Groups",
+  pills: [
+    { color: "google-green", label: "Open source" },
+    { color: "google-blue", label: "Aprendizado contínuo" },
+    { color: "google-red", label: "Comunidade regional" },
   ],
 } as const;
 
@@ -108,28 +93,82 @@ export const partners = [
   "Sua empresa aqui",
 ] as const;
 
-export const activities = [
-  {
-    color: "google-blue",
-    title: "Meetups",
-    text: "Encontros regulares com palestras curtas e tempo para networking.",
-  },
-  {
-    color: "google-red",
-    title: "Workshops",
-    text: "Sessões práticas para mão na massa em Android, Web, Cloud e IA.",
-  },
-  {
-    color: "google-yellow",
-    title: "DevFest",
-    text: "Nosso maior evento anual, com trilhas, speakers e atividades o dia todo.",
-  },
-  {
-    color: "google-green",
-    title: "Study Jams",
-    text: "Grupos de estudo guiados para aprender novas tecnologias em conjunto.",
-  },
-] as const;
+export const activities = {
+  eyebrow: "O que fazemos",
+  title: ["Conhecimento de ponta,", "aberto a todos"],
+  items: [
+    {
+      color: "google-blue",
+      icon: "calendar",
+      title: "Eventos técnicos",
+      text: "Palestras, workshops e meetups sobre Android, Flutter, Cloud, IA e muito mais.",
+    },
+    {
+      color: "google-red",
+      icon: "devfest",
+      title: "DevFest Belém",
+      text: "Nosso maior evento anual, reunindo a comunidade tech de todo o Norte.",
+    },
+    {
+      color: "google-yellow",
+      icon: "ai",
+      title: "Build with AI",
+      text: "Sessões hands-on com as ferramentas de inteligência artificial do Google.",
+    },
+    {
+      color: "google-green",
+      icon: "talks",
+      title: "GDG Talks",
+      text: "Conversas sobre software, cibersegurança e boas práticas de desenvolvimento.",
+    },
+    {
+      color: "google-blue",
+      icon: "network",
+      title: "Networking real",
+      text: "Conexões que viram parcerias, oportunidades e amizades para a vida toda.",
+    },
+    {
+      color: "google-red",
+      icon: "free",
+      title: "Tudo gratuito",
+      text: "Conhecimento de ponta acessível a todos, sem custo, do início ao fim.",
+    },
+  ],
+} as const;
+
+export const upcomingEvents = {
+  eyebrow: "Agenda",
+  title: "Próximos eventos",
+  items: [
+    {
+      day: "26",
+      month: "Jun",
+      title: "+Tech Sul e Sudeste Pará — Marabá",
+      location: "Marabá, Pará",
+      text: "O futuro da tecnologia desembarca em Marabá. Um dia de palestras, conexões e novidades para a comunidade dev do sul e sudeste do estado.",
+      href: "https://gdg.community.dev/gdg-belem/",
+    },
+    {
+      day: "27",
+      month: "Jun",
+      title: "+Tech Sul e Sudeste Pará — Parauapebas",
+      location: "Parauapebas, Pará",
+      text: "Inovação chegando a Parauapebas. Encontre a comunidade, troque ideias e descubra as tecnologias que estão moldando o futuro do Norte.",
+      href: "https://gdg.community.dev/gdg-belem/",
+    },
+  ],
+} as const;
+
+export const pastEvents = {
+  eyebrow: "Memória",
+  title: "Eventos anteriores",
+  items: [
+    { color: "google-blue", icon: "ai", tag: "Build with AI", date: "Abr 2026", title: "GDG Talks 2 — Build with AI" },
+    { color: "google-red", icon: "devfest", tag: "DevFest", date: "Dez 2025", title: "DevFest Belém 2025 — A Jornada do Futuro" },
+    { color: "google-green", icon: "build", tag: "Build with AI", date: "Mai 2025", title: "Build with AI: GDG Belém" },
+    { color: "google-yellow", icon: "talks", tag: "GDG Talks", date: "Fev 2026", title: "GDG Talks — Build with AI edition" },
+  ],
+} as const;
 
 export const faq = [
   {
@@ -151,10 +190,9 @@ export const faq = [
 ] as const;
 
 export const cta = {
-  title: "Faça parte da comunidade",
-  description:
-    "Participe dos próximos eventos, conheça outros desenvolvedores e aprenda as tecnologias que movem o mundo.",
-  button: { label: "Quero participar", href: `mailto:${"gdgbelem@gmail.com"}` },
+  title: "Faça parte da maior comunidade dev do Norte",
+  description: "Participe dos próximos eventos, conheça pessoas incríveis e evolua na carreira.",
+  button: { label: "Participar agora", href: "https://gdg.community.dev/gdg-belem/" },
 } as const;
 
 export function absoluteUrl(path = "/"): string {

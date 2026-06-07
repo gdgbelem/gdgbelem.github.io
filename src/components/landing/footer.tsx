@@ -2,7 +2,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandX,
-  IconBrandYoutube,
+  IconBrandFacebook,
   IconMail,
 } from "@tabler/icons-react";
 import { site, nav } from "@/lib/site";
@@ -11,7 +11,7 @@ const socials = [
   { key: "instagram", Icon: IconBrandInstagram, label: "Instagram" },
   { key: "linkedin", Icon: IconBrandLinkedin, label: "LinkedIn" },
   { key: "twitter", Icon: IconBrandX, label: "Twitter" },
-  { key: "youtube", Icon: IconBrandYoutube, label: "YouTube" },
+  { key: "facebook", Icon: IconBrandFacebook, label: "Facebook" },
 ] as const;
 
 export function Footer() {

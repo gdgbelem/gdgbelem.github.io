@@ -59,9 +59,12 @@ Tudo é **local ao projeto** — nada instalado globalmente.
 
 - **next-devtools** (`next-devtools-mcp`) — dá ao agente acesso em tempo real ao dev server do Next.js (erros, rotas, logs, metadata). Requer Next.js 16+. Conecta automaticamente quando `yarn dev` está rodando.
 
-### Design system
+### Design system (impeccable)
 
-- **DESIGN.md** — ainda **não criado**. Quando o projeto e a identidade visual existirem, criar um `DESIGN.md` (formato plain-text de design system) ou rodar `/impeccable init` para gerar o contexto de design.
+- **PRODUCT.md** (raiz) — contexto estratégico do impeccable: register=`brand`, usuários, propósito, personalidade (acolhedora/vibrante/comunitária), anti-references e princípios. Todo comando do impeccable lê este arquivo antes de trabalhar.
+- **DESIGN.md** — ainda **não criado**. Rodar `/impeccable document` para gerar o spec visual (cores, tipografia, componentes) a partir do código.
+- **Live mode** configurado em `.impeccable/live/config.json` (Next.js App Router → injeta em `src/app/layout.tsx`, sem CSP). Rodar `/impeccable live` com o `yarn dev` no ar para iterar variantes no browser. As sessões locais (`.impeccable/live/sessions/`) não são versionadas.
+- **Live é só desenvolvimento, nunca em produção/static export.** A tag `live.js` aponta para `localhost:8400`. Duas defesas garantem que nunca vaze para o build: `prebuild` remove qualquer injeção antes do `next build`; `postbuild` roda `check:no-live`, que **falha o build** se `localhost:8400` aparecer em `out/`.
 
 ## Diretrizes para o agente
 

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-06T00:00:00.000Z",
+  "title": "Design System: GDG Belém",
+  "extensions": {
+    "colorMeta": {
+      "google-blue": { "role": "primary", "displayName": "Google Blue", "canonical": "#4285f4", "tonalRamp": ["#0a224d", "#103163", "#16448c", "#1a73e8", "#4285f4", "#7aa7f8", "#abc7fb", "#dde9fe"] },
+      "google-red": { "role": "secondary", "displayName": "Google Red", "canonical": "#ea4335", "tonalRamp": ["#3f0f0a", "#5e1610", "#8c2018", "#c12f23", "#ea4335", "#f17a70", "#f7aaa3", "#fcdedb"] },
+      "google-yellow": { "role": "secondary", "displayName": "Google Yellow", "canonical": "#fbbc04", "tonalRamp": ["#3d2e00", "#5e4600", "#8c6800", "#c79300", "#fbbc04", "#fdcf4f", "#fee08c", "#fff3cf"] },
+      "google-green": { "role": "secondary", "displayName": "Google Green", "canonical": "#34a853", "tonalRamp": ["#0c2916", "#123d21", "#1a5c31", "#268044", "#34a853", "#68c382", "#a0dbb1", "#dcf2e3"] },
+      "google-pink": { "role": "tertiary", "displayName": "Google Pink", "canonical": "#fce4e4", "tonalRamp": ["#5e1f1f", "#8c3030", "#c14545", "#e98a8a", "#f3b8b8", "#fce4e4", "#fdeeee", "#fef7f7"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(0.145 0 0)", "tonalRamp": ["#0a0a0a", "#1a1a1a", "#252628", "#3d3e41", "#5a5b5e", "#73767b", "#9aa0a6", "#c8cace"] },
+      "surface-soft": { "role": "neutral", "displayName": "Surface Soft", "canonical": "oklch(0.97 0 0)", "tonalRamp": ["#e9eaec", "#f0f0f2", "#f7f7f8", "#fafafb", "#ffffff", "#ffffff", "#ffffff", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Wordmark e heros. Letras coloridas pela rotação Google." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de seção." },
+      "title": { "displayName": "Title", "purpose": "Títulos de card e atividade." },
+      "body": { "displayName": "Body", "purpose": "Parágrafos em peso leve, ≤75ch." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows em caixa-alta, sempre com ponto colorido antes." }
+    },
+    "shadows": [
+      { "name": "sm", "value": "0 1px 2px rgba(60,64,67,.08), 0 2px 8px rgba(60,64,67,.06)", "purpose": "Repouso de cards interativos." },
+      { "name": "md", "value": "0 6px 18px rgba(60,64,67,.10), 0 2px 6px rgba(60,64,67,.06)", "purpose": "Hover de cards; chips do ecossistema em repouso." },
+      { "name": "lg", "value": "0 18px 48px rgba(60,64,67,.16), 0 6px 16px rgba(60,64,67,.08)", "purpose": "Hub do ecossistema; hover de elementos elevados." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.2,.7,.2,1)", "purpose": "Easing padrão de transições de estado." },
+      { "name": "eco-pulse", "value": "eco-pulse 2.8s linear infinite", "purpose": "Pulsos viajando nas linhas do ecossistema." },
+      { "name": "eco-float", "value": "eco-float 6s ease-in-out infinite", "purpose": "Flutuação suave dos chips do ecossistema." },
+      { "name": "hub-ring", "value": "hub-ring 2.8s ease-out infinite", "purpose": "Anel pulsante ao redor do hub central." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Botão/âncora de ação primária. Azul Google, escurece no hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Quero participar</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--google-blue, #4285f4); color: #fff; font-weight: 500; font-size: 15px; padding: 13px 24px; border-radius: 10px; text-decoration: none; transition: background .25s cubic-bezier(.2,.7,.2,1), transform .25s; } .ds-btn-primary:hover { background: var(--google-blue-dark, #1a73e8); transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 3px solid color-mix(in srgb, #4285f4 50%, transparent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Link Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "CTA secundário: link com seta que desliza no hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Ver atividades <span class=\"ds-arrow\">→</span></a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: #252628; font-weight: 500; font-size: 15px; text-decoration: none; padding: 8px; transition: color .2s; } .ds-btn-ghost:hover { color: var(--google-blue, #4285f4); } .ds-arrow { transition: transform .25s cubic-bezier(.2,.7,.2,1); } .ds-btn-ghost:hover .ds-arrow { transform: translateX(4px); }"
+    },
+    {
+      "name": "Highlight Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card de destaque com barra colorida no topo (rotação Google).",
+      "html": "<div class=\"ds-card\"><span class=\"ds-card-bar\"></span><div class=\"ds-card-body\"><span class=\"ds-card-swatch\"></span><h3>Aberto a todos</h3><p>Eventos gratuitos e inclusivos, para qualquer pessoa interessada em tecnologia.</p></div></div>",
+      "css": ".ds-card { overflow: hidden; border: 1px solid #e9eaec; border-radius: 20px; background: #fff; box-shadow: 0 1px 2px rgba(60,64,67,.08), 0 2px 8px rgba(60,64,67,.06); transition: box-shadow .25s, transform .25s; } .ds-card:hover { box-shadow: 0 6px 18px rgba(60,64,67,.10), 0 2px 6px rgba(60,64,67,.06); transform: translateY(-2px); } .ds-card-bar { display: block; height: 6px; background: var(--google-blue, #4285f4); } .ds-card-body { padding: 28px; } .ds-card-swatch { display: inline-block; width: 36px; height: 36px; border-radius: 8px; background: var(--google-blue, #4285f4); margin-bottom: 16px; } .ds-card h3 { margin: 0; font-weight: 600; font-size: 18px; color: #252628; } .ds-card p { margin: 8px 0 0; font-weight: 300; color: #73767b; }"
+    },
+    {
+      "name": "Pill Tag",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Tag em formato pílula com ponto colorido antes do texto.",
+      "html": "<span class=\"ds-pill\"><span class=\"ds-pill-dot\"></span>Networking</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: #252628; background: #f7f7f8; padding: 9px 18px; border-radius: 999px; } .ds-pill-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--google-yellow, #fbbc04); }"
+    },
+    {
+      "name": "Stat Band",
+      "kind": "custom",
+      "refersTo": "stat-band",
+      "description": "Faixa azul de números com cantos cortados (notch clip-path).",
+      "html": "<div class=\"ds-band\"><h2>O GDG Belém em números</h2><div class=\"ds-band-grid\"><div><div class=\"ds-band-num\">1.000+</div><div class=\"ds-band-lab\">membros</div></div><div><div class=\"ds-band-num\">50+</div><div class=\"ds-band-lab\">eventos</div></div><div><div class=\"ds-band-num\">10+</div><div class=\"ds-band-lab\">anos</div></div></div></div>",
+      "css": ".ds-band { background: var(--google-blue, #4285f4); color: #fff; padding: 56px clamp(28px,5vw,64px); clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px)); } .ds-band h2 { margin: 0 0 36px; font-weight: 600; font-size: clamp(22px,3vw,30px); } .ds-band-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; } .ds-band-num { font-weight: 800; font-size: clamp(40px,6vw,64px); line-height: 1; letter-spacing: -.03em; } .ds-band-lab { margin-top: 8px; font-weight: 300; font-size: 15px; opacity: .9; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Link de navegação com underline azul que cresce no hover.",
+      "html": "<a class=\"ds-nav\" href=\"#\">Atividades</a>",
+      "css": ".ds-nav { position: relative; font-size: 15px; font-weight: 500; color: #73767b; text-decoration: none; padding: 6px 0; transition: color .2s; } .ds-nav::after { content: ''; position: absolute; left: 0; bottom: -2px; height: 2px; width: 0; background: var(--google-blue, #4285f4); transition: width .3s cubic-bezier(.2,.7,.2,1); } .ds-nav:hover { color: #252628; } .ds-nav:hover::after { width: 100%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The DevFest Playground",
+    "overview": "GDG Belém é a tela onde a comunidade brinca. O sistema empresta a linguagem dos eventos GDG DevFest — as quatro cores do Google em estado puro, formas geométricas flutuando pelo espaço, e um diagrama de ecossistema vivo. A base é clara e generosa; a energia vem da cor e do movimento, não da densidade. O tom é acolhedor antes de impressionante. É uma identidade GDG, não uma réplica do Google.",
+    "keyCharacteristics": [
+      "Base branca e arejada; a cor é evento, não plano de fundo.",
+      "Geometria Google como decoração progressiva (some no mobile).",
+      "Movimento vivo mas respeitoso de prefers-reduced-motion.",
+      "Poppins em todos os pesos: contraste 300 ↔ 800 faz a hierarquia."
+    ],
+    "rules": [
+      { "name": "The Four-Color Rotation Rule", "body": "As quatro cores Google aparecem em ordem (azul, vermelho, amarelo, verde) em conjuntos de quatro. Nunca duas do mesmo acento lado a lado.", "section": "colors" },
+      { "name": "The Blue-Acts Rule", "body": "Azul é a única cor de ação primária. Vermelho, amarelo e verde decoram e sinalizam, nunca são alvo de clique primário.", "section": "colors" },
+      { "name": "The Weight-Not-Family Rule", "body": "Hierarquia vem do peso (300 ↔ 800), não de uma segunda fonte.", "section": "typography" },
+      { "name": "The Eyebrow Dot Rule", "body": "Toda eyebrow começa com um ponto de cor Google + caixa-alta curto.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Superfícies planas em repouso com borda de 1px; sombra só no hover. Sombra estática só no ecossistema.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do girar as quatro cores Google em ordem em qualquer conjunto de quatro.",
+      "Do usar azul como única cor de ação primária.",
+      "Do abrir toda eyebrow com um ponto de cor Google + texto em caixa-alta curto.",
+      "Do manter parágrafos em peso 300 e ≤75ch.",
+      "Do usar os cantos cortados (notch clip-path) nas faixas azuis de Números e CTA.",
+      "Do deixar a geometria decorativa sumir no mobile.",
+      "Do respeitar prefers-reduced-motion em toda animação."
+    ],
+    "donts": [
+      "Don't cair em sites corporativos genéricos, cinza e sem personalidade.",
+      "Don't usar gradientes roxo-azul clichê, ícones aleatórios ou hero genérico (AI slop).",
+      "Don't adotar seriedade técnica que afaste iniciantes.",
+      "Don't aninhar cards ou criar densidade de dashboard.",
+      "Don't adicionar uma segunda família tipográfica.",
+      "Don't usar vermelho, amarelo ou verde como alvo de clique primário.",
+      "Don't deixar sombra estática em cards de conteúdo.",
+      "Don't esconder que é comunidade independente."
+    ]
+  }
+}

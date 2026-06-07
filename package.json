@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node .claude/skills/impeccable/scripts/live-inject.mjs --remove > /dev/null 2>&1 || true",
     "build": "next build",
-    "postbuild": "yarn sitemap",
+    "postbuild": "yarn check:no-live && yarn sitemap",
+    "check:no-live": "! grep -rl 'localhost:8400' out 2>/dev/null || (echo 'ERROR: impeccable live tag leaked into build output' && exit 1)",
     "sitemap": "next-sitemap --config next-sitemap.config.cjs",
     "serve": "npx --yes serve out",
     "lint": "eslint",

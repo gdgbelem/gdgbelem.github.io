@@ -80,7 +80,10 @@ export default function RootLayout({
       <head>
         <SchemaMarkup schema={[organizationSchema, websiteSchema]} />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}{/* impeccable-live-start */}
+<script src="http://localhost:8400/live.js"></script>
+{/* impeccable-live-end */}
+</body>
     </html>
   );
 }
