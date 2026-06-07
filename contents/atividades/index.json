@@ -1,0 +1,38 @@
+[
+  {
+    "color": "google-blue",
+    "icon": "calendar",
+    "title": "Eventos técnicos",
+    "text": "Palestras, workshops e meetups sobre Android, Flutter, Cloud, IA e muito mais."
+  },
+  {
+    "color": "google-red",
+    "icon": "devfest",
+    "title": "DevFest Belém",
+    "text": "Nosso maior evento anual, reunindo a comunidade tech de todo o Norte."
+  },
+  {
+    "color": "google-yellow",
+    "icon": "ai",
+    "title": "Build with AI",
+    "text": "Sessões hands-on com as ferramentas de inteligência artificial do Google."
+  },
+  {
+    "color": "google-green",
+    "icon": "talks",
+    "title": "GDG Talks",
+    "text": "Conversas sobre software, cibersegurança e boas práticas de desenvolvimento."
+  },
+  {
+    "color": "google-blue",
+    "icon": "network",
+    "title": "Networking real",
+    "text": "Conexões que viram parcerias, oportunidades e amizades para a vida toda."
+  },
+  {
+    "color": "google-red",
+    "icon": "free",
+    "title": "Tudo gratuito",
+    "text": "Conhecimento de ponta acessível a todos, sem custo, do início ao fim."
+  }
+]

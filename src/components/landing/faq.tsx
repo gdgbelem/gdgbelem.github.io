@@ -4,10 +4,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faq } from "@/lib/site";
+import { getFaq } from "@/lib/content";
 import { Container, Eyebrow } from "./section";
 
 export function Faq() {
+  const faq = getFaq();
   return (
     <section id="faq" className="scroll-mt-20 py-16 md:py-24">
       <Container className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">

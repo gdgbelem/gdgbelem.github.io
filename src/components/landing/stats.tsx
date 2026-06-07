@@ -1,10 +1,12 @@
 import { stats } from "@/lib/site";
+import { getNumeros } from "@/lib/content";
 import { Container } from "./section";
 
 const notch =
   "polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px))";
 
 export function Stats() {
+  const items = getNumeros();
   return (
     <section id="numeros" className="scroll-mt-20 pb-8">
       <Container>
@@ -24,7 +26,7 @@ export function Stats() {
           <h2 className="mb-9 text-2xl font-semibold md:text-3xl">{stats.title}</h2>
 
           <div className="grid grid-cols-2 gap-7 lg:grid-cols-4">
-            {stats.items.map((item) => (
+            {items.map((item) => (
               <div key={item.label}>
                 <div className="text-4xl font-extrabold leading-none tracking-tight tabular-nums md:text-5xl lg:text-6xl">
                   {item.value}

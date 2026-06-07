@@ -1,11 +1,15 @@
 import { IconArrowRight } from "@tabler/icons-react";
 import { partners } from "@/lib/site";
+import { getAllParceiros } from "@/lib/content";
 import { Container, Eyebrow } from "./section";
 
-// Rotation of Google colors for the placeholder marks, in canonical order.
 const dotRotation = ["bg-google-blue", "bg-google-red", "bg-google-yellow", "bg-google-green"];
 
+// Home preview of partners — quiet logo wall, sources from the CMS.
 export function Partners() {
+  const items = getAllParceiros();
+  if (items.length === 0) return null;
+
   return (
     <section id="parceiros" className="scroll-mt-20 py-16 md:py-24">
       <Container>
@@ -29,24 +33,22 @@ export function Partners() {
         </div>
 
         <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {partners.items.map((partner, i) => {
-            const Logo = partner.href ? "a" : "div";
-            const linkProps = partner.href
-              ? { href: partner.href, target: "_blank", rel: "noopener noreferrer" }
+          {items.map((partner, i) => {
+            const Logo = partner.url ? "a" : "div";
+            const linkProps = partner.url
+              ? { href: partner.url, target: "_blank", rel: "noopener noreferrer" }
               : {};
             return (
-              <li key={`${partner.name}-${i}`}>
+              <li key={partner.slug}>
                 <Logo
                   {...linkProps}
-                  className="flex h-24 items-center justify-center gap-2.5 rounded-2xl border border-border bg-card px-5 text-center outline-none transition-[box-shadow,transform] duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:ring-4 focus-visible:ring-google-blue/30"
+                  className="flex h-24 items-center justify-center gap-2.5 rounded-2xl border border-border bg-card px-5 text-center"
                 >
                   <span
                     className={`size-2.5 shrink-0 rounded-full ${dotRotation[i % 4]}`}
                     aria-hidden
                   />
-                  <span className="text-sm font-semibold text-muted-foreground">
-                    {partner.name}
-                  </span>
+                  <span className="text-sm font-semibold text-muted-foreground">{partner.name}</span>
                 </Logo>
               </li>
             );

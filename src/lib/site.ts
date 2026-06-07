@@ -43,11 +43,35 @@ export const site = {
   },
 } as const;
 
+// Primary nav — kept to 5 items (Miller's law / impeccable cognitive-load).
+// Secondary routes (organizadores, parceiros, faq, código) live in the footer.
 export const nav = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Atividades", href: "#atividades" },
-  { label: "Organizadores", href: "#organizadores" },
-  { label: "Dúvidas", href: "#faq" },
+  { label: "Eventos", href: "/eventos" },
+  { label: "Palestrantes", href: "/palestrantes" },
+  { label: "Sobre", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
+] as const;
+
+// Footer link groups — full sitemap for humans.
+export const footerNav = [
+  {
+    title: "Comunidade",
+    links: [
+      { label: "Sobre", href: "/sobre" },
+      { label: "Organizadores", href: "/organizadores" },
+      { label: "Palestrantes", href: "/palestrantes" },
+      { label: "Código de conduta", href: "/codigo-de-conduta" },
+    ],
+  },
+  {
+    title: "Participar",
+    links: [
+      { label: "Eventos", href: "/eventos" },
+      { label: "Parceiros", href: "/parceiros" },
+      { label: "Dúvidas", href: "/faq" },
+      { label: "Contato", href: "/contato" },
+    ],
+  },
 ] as const;
 
 export const hero = {
@@ -71,32 +95,22 @@ export const about = {
   ],
 } as const;
 
+// Section copy (the numbers come from the CMS — collection "numeros").
 export const stats = {
   title: "O GDG Belém em números",
-  items: [
-    { value: "1.000+", label: "membros" },
-    { value: "50+", label: "eventos" },
-    { value: "10+", label: "anos" },
-    { value: "20+", label: "palestrantes" },
-  ],
 } as const;
 
-// Organizers — substitua os placeholders pelos organizadores reais.
-// `color` segue a rotação Google (blue → red → yellow → green); `photo` é opcional.
+// Section copy for the organizers/partners previews (the records come from the CMS).
 export const organizers = {
   eyebrow: "Quem faz acontecer",
   title: ["Voluntários que movem", "a comunidade"],
   description:
     "O GDG Belém é tocado por voluntários, sem fins lucrativos. São essas pessoas que organizam cada evento, palestra e meetup.",
-  items: [
-    { name: "Seu nome aqui", role: "Organizador(a)", color: "google-blue", photo: "", link: "" },
-    { name: "Seu nome aqui", role: "Co-organizador(a)", color: "google-red", photo: "", link: "" },
-    { name: "Seu nome aqui", role: "Co-organizador(a)", color: "google-yellow", photo: "", link: "" },
-    { name: "Seu nome aqui", role: "Voluntário(a)", color: "google-green", photo: "", link: "" },
-  ],
+  ctaLabel: "Conhecer o time",
+  ctaHref: "/organizadores",
 } as const;
 
-// Partners — troque os rótulos pelos nomes reais; `href` é opcional (vira link se preenchido).
+// Section copy for the partners preview (the records come from the CMS).
 export const partners = {
   eyebrow: "Quem apoia",
   title: "Parceiros e patrocinadores",
@@ -104,109 +118,28 @@ export const partners = {
     "Empresas e espaços que ajudam a manter os eventos gratuitos. Quer apoiar a comunidade?",
   ctaLabel: "Seja um parceiro",
   ctaHref: "mailto:gdgbelem@gmail.com?subject=Quero%20apoiar%20o%20GDG%20Bel%C3%A9m",
-  items: [
-    { name: "Sua empresa aqui", href: "" },
-    { name: "Sua empresa aqui", href: "" },
-    { name: "Sua empresa aqui", href: "" },
-    { name: "Sua empresa aqui", href: "" },
-  ],
 } as const;
 
+// Section copy (the activity cards come from the CMS — collection "atividades").
 export const activities = {
   eyebrow: "O que fazemos",
   title: ["Conhecimento de ponta,", "aberto a todos"],
-  items: [
-    {
-      color: "google-blue",
-      icon: "calendar",
-      title: "Eventos técnicos",
-      text: "Palestras, workshops e meetups sobre Android, Flutter, Cloud, IA e muito mais.",
-    },
-    {
-      color: "google-red",
-      icon: "devfest",
-      title: "DevFest Belém",
-      text: "Nosso maior evento anual, reunindo a comunidade tech de todo o Norte.",
-    },
-    {
-      color: "google-yellow",
-      icon: "ai",
-      title: "Build with AI",
-      text: "Sessões hands-on com as ferramentas de inteligência artificial do Google.",
-    },
-    {
-      color: "google-green",
-      icon: "talks",
-      title: "GDG Talks",
-      text: "Conversas sobre software, cibersegurança e boas práticas de desenvolvimento.",
-    },
-    {
-      color: "google-blue",
-      icon: "network",
-      title: "Networking real",
-      text: "Conexões que viram parcerias, oportunidades e amizades para a vida toda.",
-    },
-    {
-      color: "google-red",
-      icon: "free",
-      title: "Tudo gratuito",
-      text: "Conhecimento de ponta acessível a todos, sem custo, do início ao fim.",
-    },
-  ],
 } as const;
 
+// Section copy for the events previews (the records come from the CMS).
 export const upcomingEvents = {
   eyebrow: "Agenda",
   title: "Próximos eventos",
-  items: [
-    {
-      day: "26",
-      month: "Jun",
-      title: "+Tech Sul e Sudeste Pará — Marabá",
-      location: "Marabá, Pará",
-      text: "O futuro da tecnologia desembarca em Marabá. Um dia de palestras, conexões e novidades para a comunidade dev do sul e sudeste do estado.",
-      href: "https://gdg.community.dev/gdg-belem/",
-    },
-    {
-      day: "27",
-      month: "Jun",
-      title: "+Tech Sul e Sudeste Pará — Parauapebas",
-      location: "Parauapebas, Pará",
-      text: "Inovação chegando a Parauapebas. Encontre a comunidade, troque ideias e descubra as tecnologias que estão moldando o futuro do Norte.",
-      href: "https://gdg.community.dev/gdg-belem/",
-    },
-  ],
+  ctaLabel: "Ver todos os eventos",
+  ctaHref: "/eventos",
 } as const;
 
 export const pastEvents = {
   eyebrow: "Memória",
   title: "Eventos anteriores",
-  items: [
-    { color: "google-blue", icon: "ai", tag: "Build with AI", date: "Abr 2026", title: "GDG Talks 2 — Build with AI" },
-    { color: "google-red", icon: "devfest", tag: "DevFest", date: "Dez 2025", title: "DevFest Belém 2025 — A Jornada do Futuro" },
-    { color: "google-green", icon: "build", tag: "Build with AI", date: "Mai 2025", title: "Build with AI: GDG Belém" },
-    { color: "google-yellow", icon: "talks", tag: "GDG Talks", date: "Fev 2026", title: "GDG Talks — Build with AI edition" },
-  ],
+  ctaLabel: "Ver histórico",
+  ctaHref: "/eventos",
 } as const;
-
-export const faq = [
-  {
-    q: "Preciso pagar para participar?",
-    a: "Não. Todos os eventos do GDG Belém são gratuitos e abertos à comunidade.",
-  },
-  {
-    q: "Preciso ser programador?",
-    a: "Não. Estudantes, designers, profissionais de produto e curiosos são bem-vindos — temos conteúdo para todos os níveis.",
-  },
-  {
-    q: "Como fico sabendo dos próximos eventos?",
-    a: "Acompanhe nossas redes sociais e a comunidade no GDG Community para receber os anúncios.",
-  },
-  {
-    q: "Posso palestrar ou propor um tema?",
-    a: "Sim! Estamos sempre buscando novas pessoas para compartilhar conhecimento. Entre em contato conosco.",
-  },
-] as const;
 
 export const cta = {
   title: "Faça parte da maior comunidade dev do Norte",
@@ -217,6 +150,44 @@ export const cta = {
 export function absoluteUrl(path = "/"): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
   return `${site.siteUrl}${basePath}${clean === "/" ? "" : clean}` || site.siteUrl;
+}
+
+// Build a complete Metadata object for an internal page (title, description,
+// canonical, Open Graph, Twitter) from a path + copy. Keeps SEO consistent.
+export function pageMetadata({
+  title,
+  description,
+  path,
+  image,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+}) {
+  const url = absoluteUrl(path);
+  const fullTitle = `${title} · ${site.siteName}`;
+  const ogImage = absoluteUrl(image ?? site.ogImage);
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: fullTitle,
+      description,
+      url,
+      siteName: site.siteName,
+      locale: site.locale,
+      type: "website" as const,
+      images: [{ url: ogImage, width: site.ogImageWidth, height: site.ogImageHeight }],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: fullTitle,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export function socialLinks(): string[] {

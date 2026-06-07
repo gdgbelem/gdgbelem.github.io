@@ -83,6 +83,29 @@ export function generateFaqSchema(items: FaqItem[]) {
   };
 }
 
+type PersonInput = {
+  name: string;
+  description?: string;
+  jobTitle?: string;
+  url?: string;
+  image?: string;
+  sameAs?: string[];
+};
+
+export function generatePersonSchema(person: PersonInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    ...(person.description && { description: person.description }),
+    ...(person.jobTitle && { jobTitle: person.jobTitle }),
+    ...(person.url && { url: person.url }),
+    ...(person.image && { image: person.image }),
+    ...(person.sameAs && person.sameAs.length > 0 && { sameAs: person.sameAs }),
+    memberOf: { "@id": ORG_ID, name: site.organizationName },
+  };
+}
+
 type BreadcrumbItem = { name: string; url: string };
 
 export function generateBreadcrumbs(items: BreadcrumbItem[]) {

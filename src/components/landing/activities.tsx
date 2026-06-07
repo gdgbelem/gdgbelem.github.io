@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import type { ComponentType } from "react";
 import { activities } from "@/lib/site";
+import { getAtividades } from "@/lib/content";
 import { Container, Eyebrow } from "./section";
 
 const icons: Record<string, ComponentType<{ size?: number; stroke?: number }>> = {
@@ -30,6 +31,7 @@ const iconTone: Record<string, string> = {
 const notch = "polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%)";
 
 export function Activities() {
+  const items = getAtividades();
   return (
     <section id="atividades" className="scroll-mt-20 bg-muted/40 py-20 md:py-24">
       <Container>
@@ -45,7 +47,7 @@ export function Activities() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {activities.items.map((item) => {
+          {items.map((item) => {
             const Icon = icons[item.icon];
             return (
               <article

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   IconBrandInstagram,
   IconBrandLinkedin,
@@ -5,7 +6,7 @@ import {
   IconBrandFacebook,
   IconMail,
 } from "@tabler/icons-react";
-import { site, nav } from "@/lib/site";
+import { site, footerNav } from "@/lib/site";
 import { Container } from "./section";
 
 const socials = [
@@ -23,12 +24,12 @@ export function Footer() {
       <Container>
         <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12">
           <div>
-            <a href="#" className="text-lg font-extrabold tracking-tight">
+            <Link href="/" className="text-lg font-extrabold tracking-tight">
               <span className="text-google-blue">G</span>
               <span className="text-google-red">D</span>
               <span className="text-google-yellow">G</span>
               <span className="text-foreground">Belém</span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-xs text-sm font-light text-muted-foreground">
               {site.siteDescription}
             </p>
@@ -55,35 +56,25 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
-            <h5 className="mb-4 text-[13px] font-bold uppercase tracking-[0.08em]">Navegação</h5>
-            <ul className="flex flex-col gap-3">
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="text-sm font-light text-muted-foreground transition-colors hover:text-google-blue"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="mb-4 text-[13px] font-bold uppercase tracking-[0.08em]">Contato</h5>
-            <ul className="flex flex-col gap-3">
-              <li>
-                <a
-                  href={`mailto:${site.contactEmail}`}
-                  className="text-sm font-light text-muted-foreground transition-colors hover:text-google-blue"
-                >
-                  {site.contactEmail}
-                </a>
-              </li>
-            </ul>
-          </div>
+          {footerNav.map((group) => (
+            <div key={group.title}>
+              <h3 className="mb-4 text-[13px] font-bold uppercase tracking-[0.08em]">
+                {group.title}
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {group.links.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm font-light text-muted-foreground transition-colors hover:text-google-blue"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-[13.5px] text-muted-foreground sm:flex-row">

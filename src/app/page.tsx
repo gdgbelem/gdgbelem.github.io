@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { absoluteUrl, site, faq } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
+import { getFaq } from "@/lib/content";
 import { SchemaMarkup, generateBreadcrumbs, generateFaqSchema } from "@/lib/schema";
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
@@ -26,7 +27,7 @@ export default function Home() {
     <>
       <SchemaMarkup
         schema={[
-          generateFaqSchema([...faq]),
+          generateFaqSchema(getFaq()),
           generateBreadcrumbs([{ name: "Início", url: absoluteUrl("/") }]),
         ]}
       />
