@@ -1,12 +1,13 @@
 import { stats } from "@/lib/site";
+import { Container } from "./section";
 
 const notch =
   "polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 38px 100%, 0 calc(100% - 38px))";
 
 export function Stats() {
   return (
-    <section id="numeros" className="scroll-mt-20 px-4 py-12 sm:px-6">
-      <div className="mx-auto max-w-5xl">
+    <section id="numeros" className="scroll-mt-20 pb-8">
+      <Container>
         <div
           className="relative overflow-hidden bg-google-blue px-7 py-14 text-white sm:px-12 md:px-16"
           style={{ clipPath: notch }}
@@ -33,7 +34,7 @@ export function Stats() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

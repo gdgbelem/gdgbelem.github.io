@@ -6,6 +6,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import { site, nav } from "@/lib/site";
+import { Container } from "./section";
 
 const socials = [
   { key: "instagram", Icon: IconBrandInstagram, label: "Instagram" },
@@ -19,14 +20,14 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <Container>
         <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12">
           <div>
-            <a href="#" className="flex items-baseline gap-1 text-lg font-extrabold tracking-tight">
+            <a href="#" className="text-lg font-extrabold tracking-tight">
               <span className="text-google-blue">G</span>
               <span className="text-google-red">D</span>
               <span className="text-google-yellow">G</span>
-              <span className="ml-1 text-foreground">Belém</span>
+              <span className="text-foreground">Belém</span>
             </a>
             <p className="mt-4 max-w-xs text-sm font-light text-muted-foreground">
               {site.siteDescription}
@@ -90,7 +91,7 @@ export function Footer() {
             © {site.siteName}. Comunidade independente, não afiliada oficialmente ao Google LLC.
           </span>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

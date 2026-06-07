@@ -5,20 +5,23 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faq } from "@/lib/site";
+import { Container, Eyebrow } from "./section";
 
 export function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 py-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="text-center">
-          <p className="mb-3 inline-flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-            <span className="size-2 rounded-full bg-google-yellow" />
-            Dúvidas frequentes
+    <section id="faq" className="scroll-mt-20 py-16 md:py-24">
+      <Container className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+        <div>
+          <Eyebrow tone="bg-google-yellow">Dúvidas frequentes</Eyebrow>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
+            Perguntas comuns
+          </h2>
+          <p className="mt-4 max-w-sm font-light leading-relaxed text-muted-foreground">
+            Tudo que você precisa saber antes de aparecer no próximo encontro.
           </p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Perguntas comuns</h2>
         </div>
 
-        <Accordion multiple={false} className="mt-10">
+        <Accordion multiple={false}>
           {faq.map((item, i) => (
             <AccordionItem key={item.q} value={`item-${i}`}>
               <AccordionTrigger className="text-left text-base font-medium">
@@ -30,7 +33,7 @@ export function Faq() {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
+      </Container>
     </section>
   );
 }

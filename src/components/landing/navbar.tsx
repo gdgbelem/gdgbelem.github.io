@@ -2,8 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { buttonVariants } from "@/components/ui/button";
 import { nav, hero } from "@/lib/site";
+import { GoogleMark } from "./google-mark";
+import { LinkButton } from "./button";
+
+function BrandLockup() {
+  return (
+    <a href="#" className="flex items-center gap-3" aria-label="GDG Belém — início">
+      <GoogleMark className="size-8 shrink-0" />
+      <span className="flex flex-col leading-[1.05]">
+        <span className="text-[9.5px] font-medium tracking-wide text-muted-foreground">
+          Google Developer Groups
+        </span>
+        <span className="text-base font-bold tracking-tight">
+          <span className="text-google-blue">G</span>
+          <span className="text-google-red">D</span>
+          <span className="text-google-yellow">G</span>
+          <span className="text-foreground">Belém</span>
+        </span>
+      </span>
+    </a>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,13 +42,8 @@ export function Navbar() {
         scrolled ? "border-b border-border bg-background/85" : "bg-background/60"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#" className="flex items-baseline gap-1 font-extrabold tracking-tight">
-          <span className="text-google-blue">G</span>
-          <span className="text-google-red">D</span>
-          <span className="text-google-yellow">G</span>
-          <span className="ml-1 text-foreground">Belém</span>
-        </a>
+      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-6">
+        <BrandLockup />
 
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
@@ -41,9 +56,9 @@ export function Navbar() {
               <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-google-blue transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
-          <a href={hero.ctaPrimary.href} className={buttonVariants({ size: "sm" })}>
+          <LinkButton href={hero.ctaPrimary.href} size="sm">
             {hero.ctaPrimary.label}
-          </a>
+          </LinkButton>
         </nav>
 
         <button
@@ -68,13 +83,13 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
+          <LinkButton
             href={hero.ctaPrimary.href}
             onClick={() => setOpen(false)}
-            className={buttonVariants({ className: "mt-4 w-full" })}
+            className="mt-4 w-full"
           >
             {hero.ctaPrimary.label}
-          </a>
+          </LinkButton>
         </nav>
       )}
     </header>

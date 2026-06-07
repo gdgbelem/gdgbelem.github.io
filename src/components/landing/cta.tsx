@@ -5,6 +5,8 @@ import {
   IconBrandFacebook,
 } from "@tabler/icons-react";
 import { cta, site } from "@/lib/site";
+import { Container } from "./section";
+import { LinkButton } from "./button";
 
 const notch =
   "polygon(38px 0, 100% 0, 100% calc(100% - 38px), calc(100% - 38px) 100%, 0 100%, 0 38px)";
@@ -20,8 +22,8 @@ export function Cta() {
   const links = socials.filter((s) => site.social[s.key]);
 
   return (
-    <section id="contato" className="scroll-mt-20 px-4 py-24 sm:px-6">
-      <div className="mx-auto max-w-5xl">
+    <section id="contato" className="scroll-mt-20 py-20 md:py-24">
+      <Container>
         <div
           className="relative overflow-hidden bg-google-blue px-7 py-20 text-center text-white sm:px-12 md:px-20"
           style={{ clipPath: notch }}
@@ -42,14 +44,16 @@ export function Cta() {
             <p className="mx-auto mt-4 max-w-lg text-pretty text-lg font-light text-white/90">
               {cta.description}
             </p>
-            <a
+            <LinkButton
               href={cta.button.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-9 inline-flex items-center rounded bg-white px-9 py-4 text-[17px] font-medium text-google-blue-dark shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
+              variant="white"
+              size="lg"
+              className="mt-9"
             >
               {cta.button.label}
-            </a>
+            </LinkButton>
 
             {links.length > 0 && (
               <div className="mt-10 flex justify-center gap-4">
@@ -69,7 +73,7 @@ export function Cta() {
             )}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

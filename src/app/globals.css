@@ -60,6 +60,26 @@
   --animate-eco-pulse: eco-pulse 2.8s linear infinite;
   --animate-eco-float: eco-float 6s ease-in-out infinite;
   --animate-hub-ring: hub-ring 2.8s ease-out infinite;
+  --animate-accordion-down: accordion-down 0.25s ease-out;
+  --animate-accordion-up: accordion-up 0.25s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--accordion-panel-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--accordion-panel-height);
+  }
+  to {
+    height: 0;
+  }
 }
 
 @keyframes eco-pulse {

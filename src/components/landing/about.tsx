@@ -1,5 +1,6 @@
 import { about } from "@/lib/site";
 import { colorClass } from "./google-dots";
+import { Container, Eyebrow } from "./section";
 
 function highlightDescription(text: string, term: string) {
   const i = text.indexOf(term);
@@ -15,14 +16,11 @@ function highlightDescription(text: string, term: string) {
 
 export function About() {
   return (
-    <section id="sobre" className="scroll-mt-20 py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+    <section id="sobre" className="scroll-mt-20 py-16 md:py-24">
+      <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="mb-5 inline-flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-            <span className="h-0.5 w-8 rounded bg-google-blue" />
-            {about.eyebrow}
-          </p>
-          <h2 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
+          <Eyebrow>{about.eyebrow}</Eyebrow>
+          <h2 className="mt-5 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl">
             {about.title.map((line, i) => (
               <span key={i} className="block">
                 {line}
@@ -47,7 +45,7 @@ export function About() {
         </div>
 
         <AboutVisual />
-      </div>
+      </Container>
     </section>
   );
 }

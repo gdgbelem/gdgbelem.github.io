@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import type { ComponentType } from "react";
 import { activities } from "@/lib/site";
+import { Container, Eyebrow } from "./section";
 
 const icons: Record<string, ComponentType<{ size?: number; stroke?: number }>> = {
   calendar: IconCalendarEvent,
@@ -30,14 +31,11 @@ const notch = "polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%)";
 
 export function Activities() {
   return (
-    <section id="atividades" className="scroll-mt-20 py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="atividades" className="scroll-mt-20 bg-muted/40 py-20 md:py-24">
+      <Container>
         <div className="mb-12">
-          <p className="mb-4 inline-flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-            <span className="h-0.5 w-8 rounded bg-google-blue" />
-            {activities.eyebrow}
-          </p>
-          <h2 className="text-balance text-3xl font-extrabold leading-[1.1] tracking-tight md:text-4xl">
+          <Eyebrow tone="bg-google-green">{activities.eyebrow}</Eyebrow>
+          <h2 className="mt-4 text-balance text-3xl font-extrabold leading-[1.1] tracking-tight md:text-4xl">
             {activities.title.map((line, i) => (
               <span key={i} className="block">
                 {line}
@@ -68,7 +66,7 @@ export function Activities() {
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
