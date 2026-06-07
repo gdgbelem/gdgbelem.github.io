@@ -45,15 +45,15 @@ export const site = {
 
 export const nav = [
   { label: "Sobre", href: "#sobre" },
-  { label: "Números", href: "#numeros" },
   { label: "Atividades", href: "#atividades" },
+  { label: "Organizadores", href: "#organizadores" },
   { label: "Dúvidas", href: "#faq" },
 ] as const;
 
 export const hero = {
-  subtitle: "A comunidade pulsante de desenvolvedores da região Norte",
+  subtitle: "A comunidade de desenvolvedores da região Norte",
   description:
-    "Conectamos desenvolvedores, estudantes e entusiastas de tecnologia em torno das ferramentas do Google. Aprenda, compartilhe e cresça com a gente.",
+    "Eventos gratuitos sobre as tecnologias do Google, abertos do iniciante ao experiente.",
   ctaPrimary: { label: "Quero participar", href: "https://gdg.community.dev/gdg-belem/" },
   ctaSecondary: { label: "Ver atividades", href: "#atividades" },
 } as const;
@@ -81,17 +81,36 @@ export const stats = {
   ],
 } as const;
 
-export const speakers = [
-  { name: "Em breve", role: "Palestrante", location: "Belém, PA" },
-  { name: "Em breve", role: "Palestrante", location: "Belém, PA" },
-] as const;
+// Organizers — substitua os placeholders pelos organizadores reais.
+// `color` segue a rotação Google (blue → red → yellow → green); `photo` é opcional.
+export const organizers = {
+  eyebrow: "Quem faz acontecer",
+  title: ["Voluntários que movem", "a comunidade"],
+  description:
+    "O GDG Belém é tocado por voluntários, sem fins lucrativos. São essas pessoas que organizam cada evento, palestra e meetup.",
+  items: [
+    { name: "Seu nome aqui", role: "Organizador(a)", color: "google-blue", photo: "", link: "" },
+    { name: "Seu nome aqui", role: "Co-organizador(a)", color: "google-red", photo: "", link: "" },
+    { name: "Seu nome aqui", role: "Co-organizador(a)", color: "google-yellow", photo: "", link: "" },
+    { name: "Seu nome aqui", role: "Voluntário(a)", color: "google-green", photo: "", link: "" },
+  ],
+} as const;
 
-export const partners = [
-  "Sua empresa aqui",
-  "Sua empresa aqui",
-  "Sua empresa aqui",
-  "Sua empresa aqui",
-] as const;
+// Partners — troque os rótulos pelos nomes reais; `href` é opcional (vira link se preenchido).
+export const partners = {
+  eyebrow: "Quem apoia",
+  title: "Parceiros e patrocinadores",
+  description:
+    "Empresas e espaços que ajudam a manter os eventos gratuitos. Quer apoiar a comunidade?",
+  ctaLabel: "Seja um parceiro",
+  ctaHref: "mailto:gdgbelem@gmail.com?subject=Quero%20apoiar%20o%20GDG%20Bel%C3%A9m",
+  items: [
+    { name: "Sua empresa aqui", href: "" },
+    { name: "Sua empresa aqui", href: "" },
+    { name: "Sua empresa aqui", href: "" },
+    { name: "Sua empresa aqui", href: "" },
+  ],
+} as const;
 
 export const activities = {
   eyebrow: "O que fazemos",

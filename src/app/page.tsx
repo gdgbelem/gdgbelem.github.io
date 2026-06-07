@@ -7,7 +7,9 @@ import { Stats } from "@/components/landing/stats";
 import { About } from "@/components/landing/about";
 import { Activities } from "@/components/landing/activities";
 import { UpcomingEvents } from "@/components/landing/upcoming-events";
+import { Organizers } from "@/components/landing/organizers";
 import { PastEvents } from "@/components/landing/past-events";
+import { Partners } from "@/components/landing/partners";
 import { Faq } from "@/components/landing/faq";
 import { Cta } from "@/components/landing/cta";
 import { Footer } from "@/components/landing/footer";
@@ -35,7 +37,9 @@ export default function Home() {
         <About />
         <Activities />
         <UpcomingEvents />
+        <Organizers />
         <PastEvents />
+        <Partners />
         <Faq />
         <Cta />
       </main>
