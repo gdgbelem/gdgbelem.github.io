@@ -9,7 +9,7 @@ import {
   IconCalendarEvent,
 } from "@tabler/icons-react";
 import type { ComponentType } from "react";
-import { type Pessoa, type Evento, pessoaSocials } from "@/lib/content";
+import { type Pessoa, type Evento, pessoaSocials, primaryRoleLabel } from "@/lib/content-types";
 import { renderMdx } from "@/lib/render-mdx";
 import { Container, Eyebrow } from "./section";
 import { Breadcrumbs, type Crumb } from "./breadcrumbs";
@@ -29,11 +29,6 @@ const socialIcons: Record<string, ComponentType<{ size?: number; stroke?: number
   website: IconWorld,
 };
 
-const roleLabel: Record<string, string> = {
-  speaker: "Palestrante",
-  organizer: "Organizador(a)",
-};
-
 function initials(name: string) {
   return name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 }
@@ -50,7 +45,7 @@ export async function PersonProfile({
 }) {
   const socials = pessoaSocials(person);
   const bio = person.body ? await renderMdx(person.body) : null;
-  const roles = person.role.map((r) => roleLabel[r] ?? r).join(" · ");
+  const roles = primaryRoleLabel(person);
 
   return (
     <>

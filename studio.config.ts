@@ -57,6 +57,8 @@ const config: StudioConfig = {
           { name: "slug", type: "slug", from: "name", required: true },
           { name: "role", type: "multi-select", required: true, label: "Papel",
             options: [opt("speaker", "Palestrante"), opt("organizer", "Organizador(a)")] },
+          { name: "gender", type: "select", label: "Gênero (para concordância: Organizador/a)",
+            options: [opt("m", "Masculino"), opt("f", "Feminino")] },
           { name: "title", type: "text", label: "Cargo / função" },
           { name: "company", type: "text", label: "Empresa" },
           { name: "color", type: "select", required: true, label: "Cor", options: googleColors },

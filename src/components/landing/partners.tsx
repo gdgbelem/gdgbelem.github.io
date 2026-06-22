@@ -5,6 +5,9 @@ import { Container, Eyebrow } from "./section";
 
 const dotRotation = ["bg-google-blue", "bg-google-red", "bg-google-yellow", "bg-google-green"];
 
+// basePath-aware src for assets in /public (GitHub Pages project pages).
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 // Home preview of partners — quiet logo wall, sources from the CMS.
 export function Partners() {
   const items = getAllParceiros();
@@ -44,11 +47,24 @@ export function Partners() {
                   {...linkProps}
                   className="flex h-24 items-center justify-center gap-2.5 rounded-2xl border border-border bg-card px-5 text-center"
                 >
-                  <span
-                    className={`size-2.5 shrink-0 rounded-full ${dotRotation[i % 4]}`}
-                    aria-hidden
-                  />
-                  <span className="text-sm font-semibold text-muted-foreground">{partner.name}</span>
+                  {partner.logo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={`${basePath}${partner.logo}`}
+                      alt={partner.name}
+                      className="max-h-12 w-auto max-w-[80%] object-contain"
+                    />
+                  ) : (
+                    <>
+                      <span
+                        className={`size-2.5 shrink-0 rounded-full ${dotRotation[i % 4]}`}
+                        aria-hidden
+                      />
+                      <span className="text-sm font-semibold text-muted-foreground">
+                        {partner.name}
+                      </span>
+                    </>
+                  )}
                 </Logo>
               </li>
             );

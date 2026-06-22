@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Evento } from "@/lib/content";
+import type { Evento } from "@/lib/content-types";
 import { EventCard } from "@/components/landing/event-card";
 
 type Filter = "todos" | "upcoming" | "past";

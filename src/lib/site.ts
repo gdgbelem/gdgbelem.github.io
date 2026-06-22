@@ -77,7 +77,7 @@ export const footerNav = [
 export const hero = {
   subtitle: "A comunidade de desenvolvedores da região Norte",
   description:
-    "Eventos gratuitos sobre as tecnologias do Google, abertos do iniciante ao experiente.",
+    "Eventos sobre as tecnologias do Google, abertos do iniciante ao experiente.",
   ctaPrimary: { label: "Quero participar", href: "https://gdg.community.dev/gdg-belem/" },
   ctaSecondary: { label: "Ver atividades", href: "#atividades" },
 } as const;
@@ -86,7 +86,7 @@ export const about = {
   eyebrow: "Quem somos",
   title: ["Tecnologia que nasce", "na Amazônia"],
   description:
-    "O GDG Belém é um capítulo da comunidade global Google Developer Groups, dedicado a impulsionar a inovação e o aprendizado em torno das tecnologias do Google na Amazônia. Um espaço acolhedor onde quem programa, estuda ou ama tecnologia se reúne para trocar conhecimento, fazer networking e construir o futuro — juntos.",
+    "O GDG Belém é o grupo oficial de desenvolvedores Google de Belém e, desde 2014, compartilha conhecimento sobre as tecnologias do Google com a comunidade local. Um espaço acolhedor onde quem programa, estuda ou ama tecnologia se reúne para trocar conhecimento, fazer networking e fortalecer a comunidade da região Norte — juntos.",
   highlightTerm: "Google Developer Groups",
   pills: [
     { color: "google-green", label: "Open source" },
@@ -115,7 +115,7 @@ export const partners = {
   eyebrow: "Quem apoia",
   title: "Parceiros e patrocinadores",
   description:
-    "Empresas e espaços que ajudam a manter os eventos gratuitos. Quer apoiar a comunidade?",
+    "Empresas e espaços que ajudam a manter os eventos acessíveis à comunidade. Quer apoiar?",
   ctaLabel: "Seja um parceiro",
   ctaHref: "mailto:gdgbelem@gmail.com?subject=Quero%20apoiar%20o%20GDG%20Bel%C3%A9m",
 } as const;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconMapPin, IconArrowRight } from "@tabler/icons-react";
-import type { Evento } from "@/lib/content";
+import type { Evento } from "@/lib/content-types";
 
 const dateTone: Record<string, string> = {
   "google-blue": "bg-google-blue/10 text-google-blue-dark",

@@ -40,7 +40,7 @@ export interface EventosEntry {
   summary: string;
   cover: string;
   registrationUrl: HttpUrl;
-  speakers: Array<"joao-mendes" | "paulo-figueiro" | "marina-costa">;
+  speakers: Array<"jessica-paz" | "lourdilene-souza" | "alessandra-gomes" | "ilana-ribeiro" | "gabriel-brasileiro" | "larissa-guimaraes" | "guilherme-carneiro" | "edson-pinheiro" | "gabriel-brina" | "tiago-danin" | "luiz-cortinhas" | "mario-souto" | "fernanda-rabello" | "paulo-moura" | "brenda-vilas-boas" | "thiago-kunz" | "ramon-rabello" | "felipe-araujo" | "fausto-blanco">;
   agenda: Array<{
     time: string;
     title: string;
@@ -74,18 +74,19 @@ export interface ParceirosEntry {
 export interface PessoasEntry {
   name: string;
   slug: string;
-  role: Array<"organizer" | "speaker">;
+  role: Array<"speaker" | "organizer">;
   title: string;
   company: string;
   color: string;
   avatar: string;
   tagline: string;
-  interests: Array<"UX" | "Web" | "IA" | "Cloud" | "Flutter" | "Firebase" | "Android" | "Kotlin">;
+  interests: Array<"IA" | "Web" | "Cloud" | "Android" | "Flutter" | "Segurança" | "DevOps" | "Mobile" | "UX" | "Kotlin">;
   linkedin: string;
   instagram: string;
   twitter: string;
   github: string;
   website: string;
+  gender: string;
 }
 
 // Augment both entry points so queryCollection() is fully typed regardless of import path.

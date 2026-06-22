@@ -12,7 +12,7 @@ const PATH = "/eventos";
 export const metadata: Metadata = pageMetadata({
   title: "Eventos",
   description:
-    "Próximos eventos e histórico do GDG Belém: meetups, workshops, DevFest e Build with AI. Tudo gratuito e aberto à comunidade.",
+    "Próximos eventos e histórico do GDG Belém: meetups, workshops, DevFest e Build with AI, abertos à comunidade.",
   path: PATH,
 });
 
@@ -30,7 +30,7 @@ export default function EventosPage() {
       <PageHeader
         eyebrow="Agenda da comunidade"
         title="Eventos do GDG Belém"
-        lead="Encontros gratuitos para aprender, trocar ideias e conhecer gente que respira tecnologia na Amazônia."
+        lead="Encontros para aprender, trocar ideias e conhecer gente que respira tecnologia na Amazônia."
         crumbs={[{ label: "Início", href: "/" }, { label: "Eventos" }]}
       >
         <LinkButton href="https://gdg.community.dev/gdg-belem/" target="_blank" rel="noopener noreferrer">

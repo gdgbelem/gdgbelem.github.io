@@ -1,83 +1,17 @@
 import { queryCollection } from "nextjs-studio/server";
+import type {
+  Evento,
+  Pessoa,
+  Parceiro,
+  CodigoConduta,
+  FaqItem,
+  Numero,
+  Atividade,
+} from "./content-types";
 
-// ── Domain types (frontmatter-shaped, body added by the studio) ──────────────
-export type GoogleColor = "google-blue" | "google-red" | "google-yellow" | "google-green";
-
-export interface AgendaItem {
-  time: string;
-  title: string;
-  speaker?: string; // pessoa slug
-}
-
-export interface Evento {
-  title: string;
-  slug: string;
-  date: string;
-  status: "upcoming" | "past";
-  kind: string;
-  color: GoogleColor;
-  location: string;
-  city: string;
-  summary: string;
-  cover?: string;
-  registrationUrl?: string;
-  speakers?: string[]; // pessoa slugs
-  agenda?: AgendaItem[];
-  body?: string;
-}
-
-export type PessoaRole = "speaker" | "organizer";
-
-export interface Pessoa {
-  name: string;
-  slug: string;
-  role: PessoaRole[];
-  title?: string;
-  company?: string;
-  color: GoogleColor;
-  avatar?: string;
-  tagline?: string;
-  interests?: string[];
-  linkedin?: string;
-  instagram?: string;
-  twitter?: string;
-  github?: string;
-  website?: string;
-  body?: string;
-}
-
-export interface Parceiro {
-  name: string;
-  slug: string;
-  tier: "apoio" | "prata" | "ouro" | "diamante";
-  logo?: string;
-  url?: string;
-  color: GoogleColor;
-}
-
-export interface CodigoConduta {
-  title: string;
-  slug: string;
-  updatedAt: string;
-  body?: string;
-}
-
-export interface FaqItem {
-  q: string;
-  a: string;
-}
-
-export interface Numero {
-  value: string;
-  label: string;
-}
-
-export interface Atividade {
-  title: string;
-  text: string;
-  color: GoogleColor;
-  icon: string;
-}
+// Re-export types + pure helpers so existing `@/lib/content` imports keep working.
+// (Server-only functions live here; client-safe stuff lives in ./content-types.)
+export * from "./content-types";
 
 // ── Eventos ──────────────────────────────────────────────────────────────────
 export function getAllEventos(): Evento[] {
@@ -114,6 +48,8 @@ export function getEventosForPessoa(pessoaSlug: string): Evento[] {
 }
 
 // ── Pessoas ──────────────────────────────────────────────────────────────────
+const byName = (a: Pessoa, b: Pessoa) => a.name.localeCompare(b.name, "pt-BR");
+
 export function getAllPessoas(): Pessoa[] {
   return queryCollection("pessoas").all() as unknown as Pessoa[];
 }
@@ -123,11 +59,15 @@ export function getPessoaBySlug(slug: string): Pessoa | undefined {
 }
 
 export function getSpeakers(): Pessoa[] {
-  return getAllPessoas().filter((p) => p.role?.includes("speaker"));
+  return getAllPessoas()
+    .filter((p) => p.role?.includes("speaker"))
+    .sort(byName);
 }
 
 export function getOrganizers(): Pessoa[] {
-  return getAllPessoas().filter((p) => p.role?.includes("organizer"));
+  return getAllPessoas()
+    .filter((p) => p.role?.includes("organizer"))
+    .sort(byName);
 }
 
 // Resolve a list of pessoa slugs to full records, preserving order.
@@ -168,15 +108,4 @@ export function getNumeros(): Numero[] {
 
 export function getAtividades(): Atividade[] {
   return queryCollection("atividades").all() as unknown as Atividade[];
-}
-
-// ── Social links helper for a pessoa ───────────────────────────────────────────
-export function pessoaSocials(p: Pessoa): { key: string; href: string; label: string }[] {
-  return [
-    { key: "linkedin", href: p.linkedin, label: "LinkedIn" },
-    { key: "instagram", href: p.instagram, label: "Instagram" },
-    { key: "twitter", href: p.twitter, label: "Twitter" },
-    { key: "github", href: p.github, label: "GitHub" },
-    { key: "website", href: p.website, label: "Site" },
-  ].filter((s): s is { key: string; href: string; label: string } => Boolean(s.href));
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata, absoluteUrl } from "@/lib/site";
+import { pageMetadata, absoluteUrl, basePath } from "@/lib/site";
 import { SchemaMarkup, generateBreadcrumbs } from "@/lib/schema";
 import { getAllParceiros, type Parceiro } from "@/lib/content";
 import { PageHeader } from "@/components/landing/page-header";
@@ -11,7 +11,7 @@ const PATH = "/parceiros";
 export const metadata: Metadata = pageMetadata({
   title: "Parceiros",
   description:
-    "Empresas e espaços que apoiam o GDG Belém e ajudam a manter os eventos gratuitos. Seja um parceiro da comunidade.",
+    "Empresas e espaços que apoiam o GDG Belém e ajudam a manter os eventos acessíveis. Seja um parceiro da comunidade.",
   path: PATH,
 });
 
@@ -48,7 +48,7 @@ export default function ParceirosPage() {
         eyebrow="Quem apoia"
         eyebrowTone="bg-google-green"
         title="Parceiros e patrocinadores"
-        lead="Manter os eventos gratuitos só é possível com apoio. Conheça quem caminha junto com a comunidade."
+        lead="Manter os eventos acessíveis só é possível com apoio. Conheça quem caminha junto com a comunidade."
         crumbs={[{ label: "Início", href: "/" }, { label: "Parceiros" }]}
       >
         <LinkButton href="mailto:gdgbelem@gmail.com?subject=Quero%20apoiar%20o%20GDG%20Bel%C3%A9m">
@@ -77,13 +77,24 @@ export default function ParceirosPage() {
                             {...linkProps}
                             className="flex h-28 items-center justify-center gap-2.5 rounded-2xl border border-border bg-card px-5 text-center"
                           >
-                            <span
-                              className={`size-2.5 shrink-0 rounded-full ${dotClass[partner.color]}`}
-                              aria-hidden
-                            />
-                            <span className="font-semibold text-muted-foreground">
-                              {partner.name}
-                            </span>
+                            {partner.logo ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={`${basePath}${partner.logo}`}
+                                alt={partner.name}
+                                className="max-h-14 w-auto max-w-[80%] object-contain"
+                              />
+                            ) : (
+                              <>
+                                <span
+                                  className={`size-2.5 shrink-0 rounded-full ${dotClass[partner.color]}`}
+                                  aria-hidden
+                                />
+                                <span className="font-semibold text-muted-foreground">
+                                  {partner.name}
+                                </span>
+                              </>
+                            )}
                           </Logo>
                         </li>
                       );

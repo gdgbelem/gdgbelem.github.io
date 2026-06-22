@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
-import type { Pessoa } from "@/lib/content";
+import type { Pessoa } from "@/lib/content-types";
 import { PersonCard } from "@/components/landing/person-card";
 
 // Client-side name search over speakers read on the server.

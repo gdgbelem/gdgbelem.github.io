@@ -7,6 +7,7 @@ import {
   IconDeviceMobile,
 } from "@tabler/icons-react";
 import type { ComponentType, CSSProperties } from "react";
+import { GoogleMark } from "./google-mark";
 
 type Node = {
   label: string;
@@ -63,12 +64,7 @@ export function Ecosystem() {
       <div className="absolute left-1/2 top-1/2 grid size-[116px] -translate-x-1/2 -translate-y-1/2 place-items-center max-md:size-[82px]">
         <span className="hub-ring absolute -inset-2.5 rounded-[34px] border-[1.5px] border-google-blue opacity-0 motion-safe:animate-hub-ring" />
         <div className="grid size-full place-items-center rounded-[28px] border-[1.5px] border-border bg-card shadow-lg max-md:rounded-[22px]">
-          <svg viewBox="0 0 40 40" className="size-[60px] max-md:size-[46px]" fill="none">
-            <path d="M20 4 L33 11.5 V20 L20 12.5 Z" fill="var(--google-red)" />
-            <path d="M33 11.5 L33 28.5 L26 24.5 V15.5 Z" fill="var(--google-yellow)" />
-            <path d="M20 36 L7 28.5 V20 L20 27.5 Z" fill="var(--google-green)" />
-            <path d="M7 28.5 L7 11.5 L14 15.5 V24.5 Z" fill="var(--google-blue)" />
-          </svg>
+          <GoogleMark className="size-[64px] max-md:size-[48px]" />
         </div>
       </div>
 

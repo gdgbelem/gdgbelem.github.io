@@ -10,7 +10,7 @@ const PATH = "/faq";
 export const metadata: Metadata = pageMetadata({
   title: "Dúvidas frequentes",
   description:
-    "Respostas para as perguntas mais comuns sobre o GDG Belém: é gratuito, precisa ser programador, como participar e como palestrar.",
+    "Respostas para as perguntas mais comuns sobre o GDG Belém: quanto custa, precisa ser programador, como participar e como palestrar.",
   path: PATH,
 });
 
